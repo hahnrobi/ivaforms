@@ -1,0 +1,23 @@
+.form-container {
+	position: relative;
+	width: 100%;
+	max-width: 800px;
+	margin: auto;
+	height: 100%;
+	padding-bottom: 50px;
+	box-sizing: border-box;
+	.form-main {
+		height: 100%;
+		overflow-y: auto;
+	}
+	.form-footer {
+		display: flex;
+		position: absolute;
+		width: 100%;
+		height: 50px;
+		left: 0;
+		bottom: 0;
+		background: white;
+		border-top: 1px solid #ddd;
+	}
+}

@@ -1,0 +1,13 @@
+<div class="form-container">
+	<div class="form-main">
+		<app-formgroup [formGroup]="this.formGroups[this.currentFormGroupIndex]" *ngIf="this.formGroups[this.currentFormGroupIndex]"></app-formgroup>
+	</div>
+	<div class="form-footer">
+		<button mat-flat-button color="secondary" (click)="this.currentFormGroupIndex = this.currentFormGroupIndex - 1" *ngIf="this.currentFormGroupIndex > 0">
+			Back
+		</button>
+		<button mat-flat-button color="primary" (click)="this.submitClicked()" *ngIf="this.formGroups[this.currentFormGroupIndex]" [disabled]="this.formGroups[this.currentFormGroupIndex].invalid">
+			{{ this.currentFormGroupIndex + 1 < this.formGroups.length ? "Next" : "Submit" }}
+		</button>
+	</div>
+</div>

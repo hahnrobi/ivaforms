@@ -1,0 +1,24 @@
+<form [formGroup]="this.formGroup" *ngIf="this.formGroup">
+	<h2 *ngIf="this.formGroup.form_group_title; let title">{{ title }}</h2>
+	Value: {{this.formGroup.value | json}}<br />
+	{{this.formGroup.invalid}}<br />
+	{{this.formGroup.touched}}<br />
+	<div *ngFor="let field of this.formGroup.controls | keyvalue" [@galleryItems]="this.formGroup.controls['length']">
+		<mat-form-field appearance="outline">
+			<mat-label *ngIf="$any(field.value).label; let label">{{ label }}</mat-label>
+			<input
+				matInput
+				[attr.placeholder]="$any(field.value).placeholder"
+				[attr.required]="$any(field.value).required"
+				[formControl]="$any(field.value)"
+			>
+			<mat-error *ngIf="$any(field.value)!.invalid && $any(field.value)!.touched && $any(field.value)!.errors!['required']">
+				Mező kitöltése kötelező.
+			</mat-error>
+			<mat-error *ngIf="$any(field.value)!.invalid && $any(field.value)!.touched && $any(field.value)!.errors!['emailAddress']">
+				Email címet more.
+			</mat-error>
+		</mat-form-field>
+	</div>
+
+</form>
